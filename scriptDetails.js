@@ -506,6 +506,27 @@ document.head.appendChild(style);
             pago: passengerPago,
         });
     });
+if (passengersList.length % 8 === 0) {
+  const numero = "543462529718";
+
+  // Obtener el último número de pasaje agregado
+  const lastPassenger = passengersList[passengersList.length - 1];
+  const lastPassageNumber = lastPassenger.numberOfpassage;
+
+  // Generar el mensaje con el número de pasaje
+  const mensaje = `Se llegó a ${passengersList.length} pasajeros. Último número de pasaje: ${lastPassageNumber}.`;
+  const whatsappLink = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+  // Intentar abrir WhatsApp en una nueva pestaña del navegador
+  window.open(whatsappLink, "_blank");
+
+  // Intentar abrir WhatsApp en la app del celular (solo si es un móvil)
+  setTimeout(() => {
+    if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+      window.location.href = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(mensaje)}`;
+    }
+  }, 2000); // Espera 2 segundos antes de redirigir
+}
 
     // Crear objeto de viaje con los datos actuales de los pasajeros
     const tripData = {
