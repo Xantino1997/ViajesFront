@@ -154,8 +154,6 @@
           deleteButton.style.cursor = "pointer"; // Apunta el cursor cuando pasa sobre el botón
           deleteButton.style.transition = "background-color 0.3s ease";
           deleteButton.onclick = async () => deleteTrip(trip._id); // Usar _id para el identificador
-          deleteButton.onclick = async () => deleteTrip(trip._id); // Usar _id para el identificador
-
           tripDiv.appendChild(detailsButton);
           tripDiv.appendChild(deleteButton);
           container.appendChild(tripDiv);
