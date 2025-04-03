@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadTripData() {
     const tripId = new URLSearchParams(window.location.search).get("id");
 
-    fetch(`http://localhost:3000/viajes/${tripId}`)
+    fetch(`https://viajes-roan.vercel.app/viajes/${tripId}`)
         .then((response) => response.json())
         .then((data) => {
             const { numPassengers, price, responsible, assistant, destination, passengers: tripPassengers } = data;
@@ -519,7 +519,7 @@ document.head.appendChild(style);
     };
 
     // Enviar los datos al backend usando fetch
-    fetch("http://localhost:3000/viajes", {
+    fetch("https://viajes-roan.vercel.app/viajes", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
