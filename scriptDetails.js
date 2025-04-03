@@ -278,9 +278,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const passengerNumber = passenger.numberOfpassage || "Desconocido";
     
         // Verificar datos del pasajero
-        const passengerName = passenger.name || "Nombre desconocido";
-        const passengerDni = passenger.dni || 0;
-        const passengerPago = passenger.pago || 0;
+        const passengerName = passenger.name || "";
+        const passengerDni = passenger.dni || "";
+        const passengerPago = passenger.pago || "";
     
         // Crear fila de la tabla
         row.innerHTML = `
@@ -345,76 +345,6 @@ function removePassenger(passengerNumber) {
     // Volver a renderizar la tabla y la lista de pasajeros
     renderPassengers();
 }
-
-// Función para mostrar mensaje de confirmación
-function showConfirmationMessage() {
-  let messageBox = document.getElementById("confirmation-message");
-
-  if (!messageBox) {
-      messageBox = document.createElement("div");
-      messageBox.id = "confirmation-message";
-      messageBox.style.position = "fixed";
-      messageBox.style.bottom = "20px";
-      messageBox.style.right = "20px";
-      messageBox.style.padding = "10px 20px";
-      messageBox.style.background = "rgba(0,0,0,0.8)";
-      messageBox.style.color = "white";
-      messageBox.style.borderRadius = "5px";
-      messageBox.style.fontSize = "14px";
-      messageBox.style.zIndex = "1000";
-      messageBox.style.opacity = "0";  // Para animación de entrada
-      messageBox.style.transition = "opacity 0.5s ease-in-out";
-      messageBox.style.display = "block";  // Asegurar visibilidad
-
-      document.body.appendChild(messageBox);
-      
-      console.log("Mensaje de confirmación agregado al DOM.");
-  }
-
-  messageBox.innerText = "⚠️ Para confirmar los datos borrados, debes hacer clic en Guardar.";
-  
-  // Mostrar el mensaje con animación
-  messageBox.style.display = "block"; // Asegurar que se muestra
-  setTimeout(() => {
-      messageBox.style.opacity = "1";
-  }, 100);
-
-  // Ocultar el mensaje después de 5 segundos con efecto fade-out
-  setTimeout(() => {
-      messageBox.style.opacity = "0";
-      setTimeout(() => {
-          messageBox.style.display = "none";
-      }, 500);
-  }, 5000);
-
-  // Si el mensaje no aparece en el DOM, mostrar un alert
-  setTimeout(() => {
-      if (!document.getElementById("confirmation-message") || messageBox.style.opacity === "0") {
-          alert("⚠️ Para confirmar los datos borrados, debes hacer clic en Guardar.");
-      }
-  }, 500);
-}
-
-// Agregar estilos al botón de eliminar
-const style = document.createElement("style");
-style.innerHTML = `
-  .delete-btn {
-      background: rgb(50, 180, 81);
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      border-radius: 3px;
-  }
-  .delete-btn:hover {
-      background: #cc0000;
-  }
-`;
-document.head.appendChild(style);
-
-
-
 
 
   // Función para eliminar un pasajero
