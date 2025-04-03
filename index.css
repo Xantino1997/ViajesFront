@@ -1,0 +1,75 @@
+Estilos generales body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid rgba(54, 122, 232, 0.83); /* Borde azul en el lado izquierdo */
+  border-top: 3px solid rgba(3, 3, 3, 0.83); /* Borde azul en el lado izquierdo */
+  border: 10px ridge rgba(3, 3, 3, 0.83);;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fafafa;
+}
+
+input:focus {
+  outline: none;
+  border-color: #00aaff;
+  background-color: #fff;
+}
+
+button {
+  background-color: #00aaff;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #007b9f;
+}
+
+/* Mensajes de error */
+input:invalid {
+  border-color: #e74c3c;
+}
+
+input:invalid:focus {
+  background-color: #fbe3e4;
+}
+.busForm {
+  text-align: center;
+  font-weight: bold;
+}

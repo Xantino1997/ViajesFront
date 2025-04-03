@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Solicitud de Colectivo</title>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Formulario de Solicitud de Colectivo</h2>
+      <h2>Viajes que ya estan en marcha</h2>
+      <hr />
+      <br />
+      <div id="tripsContainer"></div>
+      <hr />
+      <br />
+      <div id="tripDetails" style="display: none">
+        <h3>Detalles del Viaje</h3>
+        <p><strong>Pasajeros:</strong> <span id="detailPassengers"></span></p>
+        <p><strong>Precio:</strong> <span id="detailPrice"></span></p>
+        <p>
+          <strong>Coordinador:</strong> <span id="detailResponsible"></span>
+        </p>
+        <p><strong>Auxiliar:</strong> <span id="detailAssistant"></span></p>
+        <p><strong>Destino:</strong> <span id="detailDestination"></span></p>
+        <p><strong>Fecha:</strong> <span id="detailDate"></span></p>
+      </div>
+
+      <form id="busForm" class="busForm">
+        <label for="numPassengers">¿Cuántos viajan en el colectivo?</label>
+        <input type="number" id="numPassengers" name="numPassengers" required />
+
+        <label for="price">Precio del pasaje:</label>
+        <input type="number" id="price" name="price" required />
+
+        <label for="responsible">Coordinador:</label>
+        <input type="text" id="responsible" name="responsible" required />
+
+        <label for="assistant">Auxiliar:</label>
+        <input type="text" id="assistant" name="assistant" required />
+
+        <label for="destination">¿Dónde es el viaje?</label>
+        <input type="text" id="destination" name="destination" required />
+
+        <button type="submit">Solicitar Bus</button>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+        await loadTrips();
+
+        // Formulario de solicitud de colectivo
+        document
+          .getElementById("busForm")
+          .addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const numPassengers =
+              document.getElementById("numPassengers").value;
+            const price = document.getElementById("price").value;
+            const responsible = document.getElementById("responsible").value;
+            const assistant = document.getElementById("assistant").value;
+            const destination = document.getElementById("destination").value;
+
+            if (
+              !numPassengers ||
+              !price ||
+              !responsible ||
+              !assistant ||
+              !destination
+            ) {
+              alert("Todos los campos son obligatorios.");
+              return;
+            }
+
+            const newTrip = {
+              numPassengers,
+              price,
+              responsible,
+              assistant,
+              destination,
+              date: new Date().toISOString(),
+            };
+
+            // Enviar la solicitud al backend para guardar el viaje
+            const response = await fetch("http://localhost:3000/viajes", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(newTrip),
+            });
+
+            if (!response.ok) {
+              alert("Error al guardar el viaje.");
+              return;
+            }
+
+            const savedTrip = await response.json(); // Obtenemos el viaje guardado con ID
+            window.location.reload(); // Recargar la página para mostrar el nuevo viaje
+          });
+      });
+
+      // Cargar todos los viajes disponibles desde el backend
+      async function loadTrips() {
+        const response = await fetch("http://localhost:3000/viajes");
+        const trips = await response.json();
+        const container = document.getElementById("tripsContainer");
+
+        container.innerHTML = "";
+        trips.forEach((trip) => {
+          const tripDiv = document.createElement("div");
+          tripDiv.classList.add("trip-item");
+
+          // Botón para ver detalles
+          const detailsButton = document.createElement("button");
+          detailsButton.textContent = trip.destination;
+          detailsButton.onclick = () => {
+            alert(
+                `Destino: ${trip.destination}\n +
+                Pasajeros: ${trip.numPassengers}\n +
+                Precio: ${trip.price}\n +
+                Coordinador: ${trip.responsible}\n +
+                Auxiliar: ${trip.assistant}\n +
+                Fecha: ${new Date(trip.date).toLocaleDateString()}\n +
+                Pasajeros: ${trip.passengers
+                  .map((passenger) => passenger.name)
+                  .join(", ")}`
+            );
+
+            const urlParams = new URLSearchParams({
+              id: trip._id,
+              numPassengers: trip.numPassengers,
+              price: trip.price,
+              responsible: trip.responsible,
+              assistant: trip.assistant,
+              destination: trip.destination,
+              date: trip.date,
+            }).toString();
+
+            window.location.href = `busDetails.html?${urlParams}`;
+
+          };
+
+          // Botón para eliminar
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Eliminar";
+          deleteButton.style.backgroundColor = "#f44336"; // Rojo
+          deleteButton.style.color = "#fff"; // Texto blanco
+          deleteButton.style.border = "none"; // Sin borde
+          deleteButton.style.padding = "8px 16px"; // Espaciado
+          deleteButton.style.borderRadius = "5px"; // Bordes redondeados
+          deleteButton.style.fontSize = "14px"; // Tamaño de fuente
+          deleteButton.style.cursor = "pointer"; // Apunta el cursor cuando pasa sobre el botón
+          deleteButton.style.transition = "background-color 0.3s ease";
+          deleteButton.onclick = async () => deleteTrip(trip._id); // Usar _id para el identificador
+          deleteButton.onclick = async () => deleteTrip(trip._id); // Usar _id para el identificador
+
+          tripDiv.appendChild(detailsButton);
+          tripDiv.appendChild(deleteButton);
+          container.appendChild(tripDiv);
+        });
+      }
+
+      // Función para eliminar un viaje
+      // Función para cargar detalles de un viaje específico desde el backend
+async function loadTripDetails(tripId) {
+    const response = await fetch(`http://localhost:3000/viajes/${tripId}`);
+    const trip = await response.json();
+
+    document.getElementById("detailPassengers").textContent = trip.numPassengers;
+    document.getElementById("detailPrice").textContent = trip.price;
+    document.getElementById("detailResponsible").textContent = trip.responsible;
+    document.getElementById("detailAssistant").textContent = trip.assistant;
+    document.getElementById("detailDestination").textContent = trip.destination;
+    document.getElementById("detailDate").textContent = new Date(trip.date).toLocaleDateString();
+
+    document.getElementById("tripDetails").style.display = "block";
+}
+// Función para cargar detalles de un viaje específico desde el backend
+async function loadTripDetails(tripId) {
+    const response = await fetch(`http://localhost:3000/viajes/${tripId}`);
+    const trip = await response.json();
+
+    document.getElementById("detailPassengers").textContent = trip.numPassengers;
+    document.getElementById("detailPrice").textContent = trip.price;
+    document.getElementById("detailResponsible").textContent = trip.responsible;
+    document.getElementById("detailAssistant").textContent = trip.assistant;
+    document.getElementById("detailDestination").textContent = trip.destination;
+    document.getElementById("detailDate").textContent = new Date(trip.date).toLocaleDateString();
+
+    document.getElementById("tripDetails").style.display = "block";
+}
+
+    </script>
+  </body>
+</html> 

@@ -1,0 +1,259 @@
+/* 🎨 Diferentes colores por grupo */
+.group-container:nth-child(1) { 
+  border-left: 5px solid #007bff; 
+  background-color: rgba(0, 123, 255, 0.1); 
+  width: 100%;
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+}
+.group-container:nth-child(2) { 
+  border-left: 5px solid #28a745; 
+  background-color: rgba(40, 167, 69, 0.1); 
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos estén en una columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+  height: 100%; /* Asegura que el contenedor ocupe toda la altura disponible */
+  padding: 20px; /* Espacio dentro del contenedor */
+}
+
+.group-container:nth-child(3) { 
+  border-left: 5px solid #ffc107; 
+  background-color: rgba(255, 193, 7, 0.1); 
+}
+.group-container:nth-child(4) { 
+  border-left: 5px solid #dc3545; 
+  background-color: rgba(220, 53, 69, 0.1); 
+}
+.group-container:nth-child(5) { 
+  border-left: 5px solid #17a2b8; 
+  background-color: rgba(23, 162, 184, 0.1); 
+}
+.group-container:nth-child(6) { 
+  border-left: 5px solid #6f42c1; 
+  background-color: rgba(111, 66, 193, 0.1); 
+}
+
+/* 📌 Título de grupo */
+.group-container h3 {
+  margin-top: 0;
+  color: #444;
+  font-size: 1.2em;
+}
+
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Sección de información del colectivo */
+.bus-info {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.bus-info p {
+  margin: 8px 0;
+}
+
+/* Sección de lista de pasajeros */
+.passenger-list {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  text-align: left;
+
+}
+
+.passenger-list h2 {
+  text-align: center;
+}
+.passenger-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.passenger-card {
+    background-color: rgba(138, 43, 226, 0.2); /* Color violeta con transparencia */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: calc(20% - 20px);
+    min-width: 180px;
+    border-left: 5px solid #8a2be2; /* Borde violeta */
+}
+
+/* Estilo para los inputs */
+.passenger-card input {
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #8a2be2; /* Borde violeta */
+    border-radius: 4px;
+    text-align: center;
+    background-color: white;
+}
+
+#passengerTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#passengerTable th, #passengerTable td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+#passengerTable th {
+  background-color: #ddd;
+}
+
+#addPassengerBtn {
+  display: block;
+  margin: 15px auto;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#addPassengerBtn:hover {
+  background-color: #0056b3;
+}
+
+#passengerColumns {
+  display: flex;
+  flex-wrap: wrap; /* Esto permite que los elementos se acomoden en varias filas */
+  gap: 20px;
+  justify-content: center; /* Alinea los elementos al centro */
+}
+
+.passenger-column {
+  flex: 1 1 30%; /* Hace que las columnas ocupen 30% del contenedor */
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  text-align: center;
+  margin-bottom: 20px; /* Espacio entre las filas */
+}
+
+/* Estilo para mensajes de error */
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Sección de entradas */
+.input-section {
+  margin-top: 20px;
+  text-align: left;
+  display: inline-block;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-section label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.input-section input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#pasajerosAnotados {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas por fila */
+  gap: 20px;
+  max-width: 100%;
+  margin: 0;
+}
+
+.passenger-item {
+  background-color: rgba(138, 43, 226, 0.15); /* Violeta con transparencia */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  min-width: 180px;
+  border-left: 5px solid #8a2be2;
+}
+
+.passenger-item p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Para que en pantallas pequeñas (menos de 600px) sean solo 2 por fila */
+@media (max-width: 600px) {
+  #pasajerosAnotados {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Para que en pantallas muy chicas (menos de 400px) sea solo 1 por fila */
+@media (max-width: 400px) {
+  #pasajerosAnotados {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Botones */
+button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color:rgb(214, 35, 44);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+#captureScreenBtn, #downloadExcelBtn {
+  background-color: #17a2b8;
+}
+
+#captureScreenBtn:hover, #downloadExcelBtn:hover {
+  background-color: #138496;
+}

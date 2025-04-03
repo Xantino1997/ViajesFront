@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viajes de Congregación</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="group-container group1">
+        <div class="bus-info" id="bus-info">
+          <h1 id="destinationDisplayHeader"></h1>
+          <h2>Información del Colectivo</h2>
+          <p>
+            <strong>Capitan de Viaje:</strong><span
+              id="risponsableHeader"
+            ></span>
+          </p>
+          <p>
+            <strong>Precio total del viaje:</strong> $<span
+              id="totalPrice"
+            ></span>
+          </p>
+          <p>
+            <strong>Cantidad de Pasajeros:</strong>
+            <span id="numPassengers"></span>
+          </p>
+          <p><strong>Recaudado:</strong> $<span id="totalCollected"></span></p>
+          <p>
+            <strong>Lugares ocupados:</strong> <span id="occupiedPlaces"></span>
+          </p>
+          <p>
+            <strong>Lugares vacíos:</strong> <span id="vacantPlaces"></span>
+          </p>
+          <div id="pasajerosAnotados" class="pasajerosAnotados"></div>
+        </div>
+      </div>
+
+      <div class="group-container group2">
+        <div class="passenger-list">
+          <label
+            for="destination"
+            style="
+              color: #007bff;
+              font-size: 18px;
+              text-align: center;
+              display: block;
+            "
+            >Lugar del Viaje</label
+          >
+          <p
+            id="destination"
+            style="font-size: 16px; text-align: center; color: #474646"
+          ></p>
+          <p
+            id="passengerError"
+            style="font-size: 16px; color: red; text-align: center"
+          ></p>
+        </div>
+
+        <p>
+          <strong>Cantidad de Pasajeros:</strong>
+          <span id="maxPassengerCount"></span>
+        </p>
+        <div id="passengerListToCapture">
+          <div id="passengerColumns">
+            <div id="group1" class="passenger-column"></div>
+            <div id="group2" class="passenger-column"></div>
+          </div>
+        </div>
+        <button id="addPassengerBtn">Agregar Pasajero</button>
+      </div>
+    </div>
+
+    <div class="input-section">
+      <label for="coordinator">Coordinador de Viaje</label>
+      <p id="responsible"></p>
+
+      <label for="auxiliary">Auxiliar de Viaje</label>
+      <p id="assistant"></p>
+
+      <label for="destination">Lugar del Viaje</label>
+      <p id="destinationDisplay"></p>
+
+      <label for="price">Precio Total</label>
+      <p id="priceDisplay"></p>
+    </div>
+    <div>
+      <button onclick="window.location.href = 'index.html';">
+        Inicio para otro viaje
+      </button>
+      <button id="captureScreenBtn">Capturar Pantalla</button>
+      <button id="downloadExcelBtn">Descargar Excel</button>
+      <button id="saveDataBtn">Guardar Datos</button>
+    </div>
+
+    <script src="scriptDetails.js"></script>
+  </body>
+</html>
