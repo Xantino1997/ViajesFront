@@ -257,3 +257,138 @@ button:hover {
 #captureScreenBtn:hover, #downloadExcelBtn:hover {
   background-color: #138496;
 }
+
+@media (max-width: 768px) {
+  .group-container:nth-child(2) {
+    max-width: 100%; /* Que se expanda en toda la pantalla */
+    padding: 15px; /* Reducimos el padding */
+  }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .group-container:nth-child(2) {
+    width: 100%;
+    padding: 10px; /* Menos padding para que no ocupe mucho espacio */
+    border-left: 3px solid #28a745; /* Ajustamos el borde para que no se vea muy grueso */
+  }
+}
+@media (max-width: 768px) {
+  .passenger-list {
+    max-width: 100%; /* Que se expanda en toda la pantalla */
+    padding: 15px; /* Reducimos el padding */
+  }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .passengerListToCapture {
+    width: 100%;
+    padding: 10px; /* Menos padding para que no ocupe mucho espacio */
+  }
+}
+@media (max-width: 768px) {
+  .passengerListToCapture {
+    max-width: 100%; /* Que se expanda en toda la pantalla */
+    padding: 15px; /* Reducimos el padding */
+  }
+}
+@media (max-width: 480px) {
+  .passengerColumns {
+    width: 100%;
+    padding: 10px; /* Menos padding para que no ocupe mucho espacio */
+  }
+}
+@media (max-width: 768px) {
+  .passengerColumns {
+    max-width: 100%; /* Que se expanda en toda la pantalla */
+    padding: 15px; /* Reducimos el padding */
+  }
+}
+@media (max-width: 480px) {
+  .passenger-column {
+    width: 90%;
+    padding: 5px; /* Menos padding para que no ocupe mucho espacio */
+  }
+}
+@media (max-width: 768px) {
+  .passenger-column {
+    max-width: 90%; /* Que se expanda en toda la pantalla */
+    padding: 5px; /* Reducimos el padding */
+  }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .passenger-list {
+    width: 100%;
+    padding: 10px; /* Menos padding para que no ocupe mucho espacio */
+  }
+}
+@media (max-width: 768px) {
+  .passenger-table {
+    max-width: 100%;
+    padding: 2px;
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+  }
+
+  .passenger-table input {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin-bottom: 10px; /* Espacio entre los inputs */
+  }
+
+  .passenger-table button {
+    width: 100%; /* Hace que el botón ocupe todo el ancho */
+    margin-top: 10px; /* Espacio entre los inputs y el botón */
+  }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .passenger-table {
+    width: 100%;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .passenger-table input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .passenger-table button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .passenger-table {
+    max-width: 100%;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .passenger-table td {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra los elementos */
+    gap: 10px;
+  }
+
+  .passenger-table input {
+    width: 100%;
+  }
+
+  .passenger-table button {
+    width: 100%;
+  }
+}
+
+
