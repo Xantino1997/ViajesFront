@@ -1,4 +1,4 @@
-Estilos generales body {
+body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
@@ -31,8 +31,8 @@ label {
 }
 
 input {
-  width: 100%;
-  padding: 12px;
+  width: 90%;
+  padding:12px;
   margin-bottom: 15px;
   font-size: 16px;
   border: 1px solid #ccc;
