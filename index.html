@@ -85,7 +85,7 @@
             };
 
             // Enviar la solicitud al backend para guardar el viaje
-            const response = await fetch("https://viajes-roan.vercel.app/viajes", {
+            const response = await fetch("https://viajes-nx0tvthwk-xantino1997s-projects.vercel.app/viajes", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(newTrip),
@@ -103,7 +103,7 @@
 
       // Cargar todos los viajes disponibles desde el backend
       async function loadTrips() {
-        const response = await fetch("https://viajes-roan.vercel.app/viajes");
+        const response = await fetch("https://viajes-nx0tvthwk-xantino1997s-projects.vercel.app/viajes");
         const trips = await response.json();
         const container = document.getElementById("tripsContainer");
 
@@ -163,7 +163,7 @@
       // Función para eliminar un viaje
       // Función para cargar detalles de un viaje específico desde el backend
 async function loadTripDetails(tripId) {
-    const response = await fetch(`https://viajes-roan.vercel.app/viajes/${tripId}`);
+    const response = await fetch(`https://viajes-nx0tvthwk-xantino1997s-projects.vercel.app/viajes/${tripId}`);
     const trip = await response.json();
 
     document.getElementById("detailPassengers").textContent = trip.numPassengers;
@@ -177,7 +177,7 @@ async function loadTripDetails(tripId) {
 }
 // Función para cargar detalles de un viaje específico desde el backend
 async function loadTripDetails(tripId) {
-    const response = await fetch(`https://viajes-roan.vercel.app/viajes/${tripId}`);
+    const response = await fetch(`https://viajes-nx0tvthwk-xantino1997s-projects.vercel.app/viajes/${tripId}`);
     const trip = await response.json();
 
     document.getElementById("detailPassengers").textContent = trip.numPassengers;
@@ -194,7 +194,7 @@ async function deleteTrip(tripId) {
     const confirmation = confirm("¿Estás seguro de que deseas eliminar este viaje?");
     if (!confirmation) return;
 
-    const response = await fetch(`https://viajes-roan.vercel.app/viajes/${tripId}`, {
+    const response = await fetch(`https://viajes-nx0tvthwk-xantino1997s-projects.vercel.app/viajes/${tripId}`, {
         method: "DELETE",
     });
 
@@ -210,3 +210,4 @@ async function deleteTrip(tripId) {
     </script>
   </body>
 </html> 
+
