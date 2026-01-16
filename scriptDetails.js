@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadTripData() {
     const tripId = new URLSearchParams(window.location.search).get("id");
 
-    fetch(`https://viajes-roan.vercel.app/viajes/${tripId}`)
+    fetch(`https://viajes-nx0tvthwk-xantino1997s-projects.vercel.app/viajes/${tripId}`)
         .then((response) => response.json())
         .then((data) => {
             const { numPassengers, price, responsible, assistant, destination, passengers: tripPassengers } = data;
@@ -470,7 +470,7 @@ if (passengersList.length % 8 === 0) {
     };
 
     // Enviar los datos al backend usando fetch
-    fetch("https://viajes-roan.vercel.app/viajes", {
+    fetch("https://viajes-nx0tvthwk-xantino1997s-projects.vercel.app/viajes", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -490,3 +490,4 @@ if (passengersList.length % 8 === 0) {
 
 
 });
+
